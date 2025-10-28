@@ -63,10 +63,18 @@ def main():
                 
 
                 #Save performance to file
-                with open("model_performance.txt", "w") as f:
-                    f.write(f"Accuracy: {acc:.4f}\n\n")
-                    f.write(report_str)
-                print("Performance saved to 'model_performance.txt")
+                save_choice = input("\nDo you want to save the performance to a file? (y/n): ")
+                if save_choice.lower() == 'y':
+                    file_name = input("Enter the filename: ")
+                    try:
+                        with open(file_name, "w") as f:
+                            f.write(f"Accuracy: {acc:.4f}\n\n")
+                            f.write(report_str)
+                        print(f"Performance saved to '{file_name}'")
+                    except Exception as e:
+                        print(f"Error saving file: {e}")
+                else:
+                    print("Results were not saved.")
 
         elif choice== "4":
             print("Exiting the program.")

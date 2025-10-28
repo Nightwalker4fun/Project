@@ -25,6 +25,8 @@ def main():
                 print(df.head(10))
                 print("\n Basic statistics:")
                 print(df.describe(include='all'))
+
+                print(df.columns)
             except FileNotFoundError:
                 print("Error: 'data.csv' file not found.")
         elif choice== "2":

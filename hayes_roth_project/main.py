@@ -36,28 +36,34 @@ def main():
                 print("2. K-Nearest Neighbors")
                 model_choice = input("Enter your choice: ")
                 if model_choice== "1":
-                    model_type= "decision_tree"
+                    model_type = "decision_tree"
                 elif model_choice== "2":
                     model_type= "knn"
                 else:
                     print("Invalid choice. Defaulting to Decision Tree.")
-                    model_type= "decision_tree"
+                    model_type = "decision_tree"
+
+                model, x_test, y_test = train_model(df, model_type)
+                
+
         elif choice == "3":
-            if model is NOne:
+            if model is None or x_test is None or y_test is None:
                 print("Please train the model first.")
             else: 
                 print("Evaluating model performance...")
                 y_pred = model.predict(x_test)
                 acc = accuracy_score(y_test, y_pred)
                 report = classification_report(y_test, y_pred)
+                report_str = str(report)
                 print(f"Accuracy: {acc}")
                 print("Classification Report:")
-                print(report)
+                print(report_str)
+                
 
                 #Save performance to file
                 with open("model_performance.txt", "w") as f:
                     f.write(f"Accuracy: {acc:.4f}\n\n")
-                    f.write(report)
+                    f.write(report_str)
                 print("Performance saved to 'model_performance.txt")
 
         elif choice== "4":

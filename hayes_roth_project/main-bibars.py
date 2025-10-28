@@ -10,9 +10,7 @@ def main():
     Y_test = None
 
     while True:
-        print("\n Menu:")
-        print("1. Load dataset")
-        print("2. Train model")
+        _extracted_from_main_34("\n Menu:", "1. Load dataset", "2. Train model")
         print("3. Evaluate model")
         print("4. Simulate prediction")
         print("5. Exit")
@@ -22,9 +20,9 @@ def main():
         if choice == "1":
             # 3a. Load dataset and show basic info
             try:
-                df = pd.read_csv("data/data.csv")  # Adjust path if needed
+                df = pd.read_csv("data.csv")  # Adjust path if needed
                 print(" Dataset loaded successfully!")
-                print("\n📌 Top 10 rows:")
+                print("\n Top 10 rows:")
                 print(df.head(10))
                 print("\n Basic statistics:")
                 print(df.describe(include='all'))
@@ -36,9 +34,11 @@ def main():
             if df is None:
                 print(" Please load the dataset first.")
             else:
-                print(" Choose model type:")
-                print("1. Decision Tree")
-                print("2. K-Nearest Neighbors")
+                _extracted_from_main_34(
+                    " Choose model type:",
+                    "1. Decision Tree",
+                    "2. K-Nearest Neighbors",
+                )
                 model_choice = input("Enter 1 or 2: ")
 
                 if model_choice == "1":
@@ -73,6 +73,13 @@ def main():
 
         else:
             print(" Invalid choice. Please select 1–5.")
+
+
+# TODO Rename this here and in `main`
+def _extracted_from_main_34(arg0, arg1, arg2):
+    print(arg0)
+    print(arg1)
+    print(arg2)
 
 if __name__ == "__main__":
     main()

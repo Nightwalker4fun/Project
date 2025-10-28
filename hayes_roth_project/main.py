@@ -19,7 +19,7 @@ def main():
         
         if choice== "1":
             try:
-                df = pd.read_csv('data.csv')
+                df = pd.read_csv("data.csv")
                 print(" Dataset loaded successfully!")
                 print("\n Top 10 rows:")
                 print(df.head(10))

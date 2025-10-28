@@ -1,6 +1,7 @@
 # 3a. Load the dataset from a CSV file and display the first 10 rows along with basic statistics. And add a menu
 import pandas as  pd
 from models.trainer import train_model
+from sklearn.metrics import accuracy_score, classification_report
 
 def main():
     df = None
@@ -12,7 +13,8 @@ def main():
         print("\nMenu:")
         print("1. Load Dataset")
         print("2. Train Model")
-        print("3. Exit")
+        print("3. Evaluate and Save Model Performance")
+        print("4. Exit")
         choice = input("Enter your choice: ")
         
         if choice== "1":
@@ -40,6 +42,29 @@ def main():
                 else:
                     print("Invalid choice. Defaulting to Decision Tree.")
                     model_type= "decision_tree"
-        elif choice== "3":
+        elif choice == "3":
+            if model is NOne:
+                print("Please train the model first.")
+            else: 
+                print("Evaluating model performance...")
+                y_pred = model.predict(x_test)
+                acc = accuracy_score(y_test, y_pred)
+                report = classification_report(y_test, y_pred)
+                print(f"Accuracy: {acc}")
+                print("Classification Report:")
+                print(report)
+
+                #Save performance to file
+                with open("model_performance.txt", "w") as f:
+                    f.write(f"Accuracy: {acc:.4f}\n\n")
+                    f.write(report)
+                print("Performance saved to 'model_performance.txt")
+
+        elif choice== "4":
             print("Exiting the program.")
             break
+        else:
+            print("Invalid choice. Please try again.")
+
+if __name__ == "__main__":
+    main()

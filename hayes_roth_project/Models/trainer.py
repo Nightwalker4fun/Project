@@ -3,11 +3,11 @@ from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
-def train_model(df, model_type= "decision_tree"):
-    # prepare the data
-    x = df [["age", "education", "marital_status"]]
-    y = df ["class"]
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size= 0.2, random_state= 42)
+def train_model(df, model_type="decision_tree"):
+    # prepare the data - using hobby, age, education, and marital_status
+    x = df[["hobby", "age", "education", "marital_status"]]
+    y = df["class"]
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
     
     if model_type == "decision_tree":
         model = DecisionTreeClassifier()

@@ -2,7 +2,7 @@
 import pandas as  pd
 from models.trainer import train_model
 
-def main():
+def main(): 
     df = None
     model = None
     x_test = None
@@ -27,10 +27,9 @@ def main():
                 print("Error: 'data.csv' file not found.")
         elif choice== "2":
             if df is None:
-                print("Please load the dataset first.")
-            else:
                 print("Select model type:")
-                print("1. Decision Tree")
+                display_menu_options(["Decision Tree", "K-Nearest Neighbors"])
+                model_choice = input("Enter your choice: ")
                 print("2. K-Nearest Neighbors")
                 model_choice = input("Enter your choice: ")
                 if model_choice== "1":

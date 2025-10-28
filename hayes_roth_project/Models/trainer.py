@@ -18,4 +18,4 @@ def train_model(df, model_type= "decision_tree"):
     
     model.fit(x_train, y_train)
     print(f"{model_type} model trained successfully!")
-    return model
+    return model, x_test, y_test

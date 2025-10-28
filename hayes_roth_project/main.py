@@ -1,4 +1,3 @@
-# 3a. Load the dataset from a CSV file and display the first 10 rows along with basic statistics. And add a menu
 import pandas as  pd
 from models.trainer import train_model
 from sklearn.metrics import accuracy_score, classification_report
